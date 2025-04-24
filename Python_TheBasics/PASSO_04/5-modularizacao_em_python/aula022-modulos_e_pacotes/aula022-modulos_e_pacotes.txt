@@ -1,0 +1,92 @@
+>>> MÓDULOS E PACOTES <<<
+Nessa aula, vamos continuar nossos estudos de funções em Python, 
+aprendendo como criar módulos em Python e reutilizar nossos códigos em outros projetos. 
+Vamos aprender também como agrupar vários módulos em um pacote, 
+ampliando ainda mais a modularização em grandes projetos em Python.
+
+>> MODULARIZAÇÃO: <<
+    -> O conceito de modularização surgiu no início da década de 60, 
+    -> período em que a computação rompe barreiras e os sistemas se tornavam cada vez maiores.
+    -> O foco principal é:
+        - Dividir um programa grande em pequenos módulos;
+        - Aumentar a legibilidade;
+        - Facilitar a manutenção;
+        - Ocultação do código detalhado;
+        - Reutilizar o módulo em outros projetos.
+
+
+EXEMPLO 1:
+    > Vamos supor que tenhamos o código abaixo, composto por 3 funções e o programa principal. <
+
+
+def fatorial(n):
+    f = 1
+    for c in range(1, n+1):
+        f *= c
+    return f
+
+
+def dobro(n):
+    return n*2
+
+
+def triplo(n):
+    return n*3
+
+
+# Programa principal
+num = int(input("Digite um valor"))
+fat = fatorial(num)
+print(f'O fatorial de {num} é {fat}')
+
+
+> Vamos modular o código acima criando um novo arquivo que vai comportar somente as 3 funções, separando-as do programa principal<
+
+---------
+uteis.py
+---------
+def fatorial(n):
+    f = 1
+    for c in range(1, n+1):
+        f *= c
+    return f
+
+
+def dobro(n):
+    return n*2
+
+
+def triplo(n):
+    return n*3
+
+
+---------
+exemplo1:
+---------
+import modulo 
+
+# Programa principal
+num = int(input("Digite um valor"))
+fat = fatorial(num)
+print(f'O fatorial de {num} é {fat}')
+_________________________________________________________________________________
+A importação é feita justamente utilizando o comando import, como fizemos anteriormente para as bibliotecas.
+
+
+>> PACOTES: <<
+Quando somente os módulos já não satisfazem pelo tamanho do programa, temos os pacotes, também chamados de biblioteca em outras linguagens de programação:
+Supomos que tenhamos um número enorme de funções dentro do mesmo módulo.
+Os pacotes vem resolver esse problema, onde separamos vários módulos separados por assunto.
+O pacote nada mais é que uma pasta contendo os módulos.
+
+A importação do pacote se dá também utilizando o import, como por exemplo:
+    import pacote # importa todos os módulos da pasta pacote
+        ou
+    from pacote import modulo1 # importa somente um dos módulos do pacote.
+
+Podemos também ter um pacote constituído por outras pastas, onde cada pasta também constitui um módulo.
+
+Existe uma sintaxe para nomes de arquivos dentro de pacotes.
+Cada um desses pacotes recebe um arquivo específico chamado: __init__.py
+
+

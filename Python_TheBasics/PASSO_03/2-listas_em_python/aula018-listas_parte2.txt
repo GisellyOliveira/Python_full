@@ -1,0 +1,79 @@
+--->>> LISTAS COMPOSTAS <<<---
+---> Nessa aula, vamos aprender o que são LISTAS e como utilizar listas em Python.
+    As listas são variáveis compostas que permitem armazenar vários valores em uma mesma estrutura, acessíveis por chaves individuais.
+
+Resumo da aula anterior sobre listas:
+    As listas armazenam vários valores e é mutável.
+    Se declararmos uma variável chamada "dados", o computador vai criar um espaço na memória para conter os valores que a variável receberá.
+
+dados = list()
+
+    Podemos adicionar itens nessa lista utilizando o método append().
+    Isso fará com que um índice seja criado na estrutura da memória do computador que vai receber o valor 'Pedro':
+
+dados.append('Pedro')
+
+    O mesmo pode ser feito para armazenar valores que sejam de tipos diferentes, como um number e uma string dentro da mesma lista:
+
+dados.append(25)
+
+    Desta forma, teremos a string 'Pedro'no índice 0, e o number 25 no índice 1:
+    dados:
+        ----------------
+        | 'Pedro' | 25 |
+        ----------------
+             0       1  
+
+print(dados[0])
+    -> Retornará: 'Pedro'
+
+print(dados[1])
+    -> Retornará: 25
+
+
+----------> AGORA VEREMOS COMO FUNCIONAM AS LISTAS COMPOSTAS: <----------
+-> Vamos criar uma nova estrutura declarando uma nova variável para receber uma lista:
+
+pessoas = list()
+
+-> Dentro da lista 'pessoas', vamos dar um append() para inserir novos valores. Desta vez, porém, vamos inserir toda a lista 'dados' que criamos anteriormente.
+-> Para inserir uma lista dentro de outra lista, passamos como parâmetro o nome da lista seguido de um fatiamento completo da estrutura dos dados dessa lista:
+
+pessoas.append(dados[:])
+
+-> Quando isso ocorre, os dados do índice 0 e 1 da lista 'dados'vão ocupar, juntas, o índice 0 da lista 'pessoas':
+    pessoas:
+    -----------------------------------------------------------
+    | ---------------- || ---------------- || ---------------- | 
+    | | 'Pedro' | 25 | || |         |    | || |         |    | |
+    | ---------------- || ---------------- || ---------------- |
+    |     0       1    ||                  ||                  |
+    ------------------------------------------------------------
+            0                    1                     2 
+
+-> Também é possível inserir outras listas nos outros índices:
+    pessoas:
+    -----------------------------------------------------------
+    | ---------------- || ---------------- || ---------------- | 
+    | | 'Pedro' | 25 | || | 'Maria' | 19 | || | 'João'  | 32 | |
+    | ---------------- || ---------------- || ---------------- |
+    |     0       1    ||     0       1    ||     0       1    |
+    ------------------------------------------------------------
+            0                    1                     2 
+
+    pessoas = [['Pedro',25], ['Maria',19], ['João',32]]
+
+>>> ASSIM FUNCIONAM AS LISTAS COMPOSTAS!!! <<<
+
+-> Para retornar no índice 0, o item 0:
+print(pessoas[0][0]) 
+    -> Retorna: 'Pedro'
+
+print(pessoas[1][1])
+    -> Retorna: 19
+
+print(pessoas[2][0])
+    -> Retorna: 'João''
+
+print(pessoas[1])
+    -> Retorna: ['Maria',19]

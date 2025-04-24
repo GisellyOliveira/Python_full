@@ -1,0 +1,32 @@
+-> Importando bibliotecas:
+    Para importar toda uma biblioteca, usamos: 
+            import nome_da_biblioteca
+    Para uma funcionalidade específico da biblioteca, usamos:
+            from nome_da_biblioteca import nome_da_funcionalidade, nome_da_outra_funcionalidade
+
+
+    Até o presente momento, utilizamos os operadores aritméticos durante as aulas, mas importarenos a biblioteca "math"para novas funcionalidades, como arredondar para cima ou para baixo, etc.
+    -> Biblioteca "math":
+            import math
+        - ceil: arredonda para cima
+        - floor: arredonda para baixo
+        - trunc: 'trucate'/ trunca o número a partir da vírgula, eliminando o que estiver depois dela.
+        - pow: o power é utilizado para a potência
+        - sqrt: square root / raiz quadrada
+        - factorial: cálculo fatorial 
+
+    Como acessar quais bobliotecas estão disponíveis?em python.org é possível acessar a documentação das bibliotecas disponíveis para a versão do python instalada.
+
+    -> Utilizamos nos exemplos em .py a biblioteca math para calcular raiz quadrada, arredondar para cima e arredondar para baixo.
+    -> vimos que o código muda um pouco quando importamos somente as funcionalidades específicas.
+
+    -> Utlizaremos também a biblioteca random, que gera um número float aleatório entre 0 e 1, no arquivo aula008c.py.
+
+    -> Na página pythin,.org, na sessão PyPI, é possível acessar um index das bibliotecas disponíveis.
+    -> É também possível construir a nossa própria biblioteca e disponibilizar para a comunidade.
+
+    -> Alguns pacotes precisam ser instaladas antes de serem importadas:
+    Ex: import emoji
+    É necessário instalar o pacote antes de chamar o import
+
+    -> Como instalar e gerenciar módulos no vscode?

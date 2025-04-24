@@ -1,0 +1,59 @@
+---> Nessa aula, vamos continuar a estudar os laços e vamos aprender a usar a estrutura de repetição while no Python. Por exemplo:
+
+c=1 while c !=10:
+print(c)
+c+=1
+print(‘Acabou’)
+
+--->>>> ESTRUTURA DE REPETIÇÃO COM TESTE LÓGICO: <<<<---
+Simulamos uma situação de repetição como na aula anterior: um personagem de um jogo de video game deve caminhar um número determinado de casas até chegar a a última casa que contem uma maçã, que ele deve pegar.
+Na aula passada, utilizamos a estrutura "for" para realizá-lo, onde passávamos como parâmetro o número de casas que o personagem deveria caminhar dentro de um laço até chegar à maçã, onde finalmente ele sairia da iteração para pegá-la.
+Nesta aula, temos uma situação diferente: não sabemos quantas casas precisamos caminhar até chegar à casa onde a maçà se encontra.
+
+-> Portando, vamos adotar uma nova estrutura para realizar essa tarefa, utilizando uma ESTRUTURA DE REPETIÇÃO COM TESTE LÓGICO:
+# PSEUDOCÓDIGO/PORTUGOL:
+
+enquanto não maçã
+    passo 
+pega 
+
+
+# PYTHON:
+
+while not maçã:
+    passo 
+pega 
+
+-> O "while" é mais versátil que o "for". Quando sabemos o limite ou range, podemos utilizar o "for" ou o "while". Quando não sabemos o range, somente o "while" pode ser usado.
+-> Enquando o "for" pede um range, o "while" pede somente uma condição.
+-> Agora simulamos um outro cenário: na caminho do personagem há alguns buracos para pular, assim como algumas moedas que aparecem esporadicamente para serem pegas.
+Desta vez não temos um padrão para ser usado como tínhamos anteriormente:
+Vamos utilizar um padrão de verdadeiro ou falso para determinar a ação do eprsonagem, exemplo:
+    - Se não tiver maçã: 
+        - Se tiver chão na casa adiante, caminhe.
+        - Se tiver um buraco, pule.
+        - Se tiver uma moeda, pega.
+    - Tem maçã: 
+        - Pega maçã.
+
+PSEUDOCÓDIGO:
+
+enquanto não maçã 
+    se chão
+        passo
+    se buraco
+        pular
+    se moeda
+        pega
+
+PYTHON:
+
+    while not maçã:
+        if chão:
+            passo 
+        if buraco:
+            pula 
+        if moeda:
+            pega 
+
+-> AS ESTRUTURAS APRESENTADAS NOS EXERCÍCIOS DESTA AULA SERÃO COMPLEMENTADAS NA AULA 15.

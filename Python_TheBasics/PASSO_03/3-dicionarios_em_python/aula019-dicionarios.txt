@@ -1,0 +1,77 @@
+Nessa aula, vamos aprender o que são DICIONÁRIOS e como utilizar dicionários em Python. 
+Os dicionários são variáveis compostas que permitem armazenar vários valores em uma mesma estrutura, acessíveis por chaves literais.
+
+Nas listas, utilizamos índices numéricos para cada valor que a variável da lista recebe.
+Nos dicionários, podemos dar nomes a cada índice. Elas são estruturas de dados similares as listas, mas podemos personalizar o nome dos índices.
+
+As tuplas são conhecidas por um par de parênteses:
+    Tuplas ()
+
+As listas são conhecidas por um par de colchetes:
+    Listas []
+
+>>> Os dicionários são conhecidos por um par de colchetes: <<<
+    Dicionários {}
+
+    ---> Para declarar um dicionário vazio, podemos:
+            dados = dict()
+                ou
+            dados = {}
+
+    ---> Para declarar um valor, é necessário nominar seu identificador:
+            dados = {'nome':'Pedro', 'idade':25}
+    
+    ---> Para retornar o valor nome da variável:
+            print(dados['nome']) -> Retorna: Pedro
+            print(dados['idade']) -> Retorna: 25
+
+    ---> Para adicionar novos valores ao dicionário:
+        -> Não se utiliza do método append(). Vamos inserir um novo valor para o sexo:
+            dados['sexo']='M''
+        -> O elemento é criado no final do dicionário.
+
+    ---> Para deletar elementos:
+            del dados['idade']
+
+    >>> CADA UM DOS ELEMENTOS DO DICIONÁRIO POSSUEM UMA CHAVE, E PODEM SER ACESSADOS PELA CHAVE, PELO ITEM OU PLEO VALOR! <<<
+
+    -> vamos criar um novo exemplo:
+    filme = {'título': 'Star Wars',
+             'ano': 1977,
+             'diretor': 'George Lucas'
+            }
+        
+    ---> Os valores retornados são os valores guardados dentro da variável.
+            print(filme.values()) ->Retorna: {'Star Wars', 1977, 'George Lucas'}
+
+    ---> Retorna o nome das chaves dos valores:
+            print(filme.keys()) -> Retorna: {'título', 'ano', 'diretor'}
+
+    ---> Retorna os valores e suas respectivas chaves:
+            print(filme.items())
+    
+    
+    -> Podemos utilizar esses valores em laços de repetição.
+       No exemplo abaixo, utilizamos a variável k para key e v para value:
+
+            for k, v in filme.items():
+                print(f'O {k} é {v}')
+
+    -> Podemos inserir dicionarios dentro de listas, etc. Exemplo:
+       Supomos que precisamos inserir o dicionário de filmes dentro de lista chamada locadora:
+
+                                    LOCADORA
+        -----------------------------------------------------------------------------------------------------------------------------------
+       |                                             |                       FILME                 |                                       |
+       | ------------------------------------------  |   ----------------------------------------  |  ------------------------------------ |
+       ||  'Star Wars' |  1977  |  'George Lucas'  | |  |  'Avengers' |  2012  |  'Joss Whedon'  | | |  'Matrix' |  1999  |  'Wachowski'  ||
+       | ------------------------------------------  |   ----------------------------------------  |  ------------------------------------ |
+       |    título         ano         diretor       |       título       ano         diretor      |     título      ano       diretor     |
+        -----------------------------------------------------------------------------------------------------------------------------------
+                            0                                                   1                                        2
+
+    ---> Para retornar o ano do filme no índice 0 da lista:
+            print(locadora[0]['ano']) -> Retorna: 1977
+
+    ---> Para retornar o título do filme no índice 2 da lista:
+            print(locadora[2]['filme']) -> Retorna: 'Matrix'

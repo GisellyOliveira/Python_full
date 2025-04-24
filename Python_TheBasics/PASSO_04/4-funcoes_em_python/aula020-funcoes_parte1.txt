@@ -1,0 +1,21 @@
+Nessa aula, vamos aprender o que são funções ou rotinas e como utilizar funções em Python. 
+Funções são trechos de código que podem ser executados em momentos diferentes de nossos códigos em Python. 
+Veja como funciona o comando def em Python e como utilizá-lo com parâmetros simples e múltiplos.
+
+-> As funções são treços de código que servem para ser usados quando existe uma rotina no algorítmo:
+Podemos usar como exemplo as linhas divisórias que utilizamos na apresentação do resultado do código:
+
+def mostraLinha():
+    print('------------------------------')
+
+mostraLinha()
+print('        SISTEMA DE ALUNOS        ')
+mostraLinha()
+mostraLinha()
+print('        CADASTRO DE FUNCIONÁRIOS        ')
+mostraLinha()
+mostraLinha()
+print('        ERRO DO SISTEMA        ')
+mostraLinha()
+
+-> Quando escrevemos a função mostraLinha(), a chamamos para que seja executada.

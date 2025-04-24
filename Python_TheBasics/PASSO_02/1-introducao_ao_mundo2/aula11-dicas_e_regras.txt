@@ -1,0 +1,5 @@
+Neste módulo veremos: 
+    -> Estrutura de controle: condiçoes e laços
+            --> Condiçoes: simples, compostas e alinhadas
+            --> Iterações: as estruturas de repetições com variável de controle, com teste lógico no início, e as repetições infinitas com interrupção no meio.
+            

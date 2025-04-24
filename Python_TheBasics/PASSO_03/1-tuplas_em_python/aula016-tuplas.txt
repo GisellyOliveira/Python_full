@@ -1,0 +1,43 @@
+### VARIÁVEIS
+- Quando uma variável é declarada, ela ocupa um lespaço na memória.
+- Quando fazemos uma atribuição, inserimos o símbolo = para sinalizar que a variável recebe algum valor.
+- Quando a variável recebe o valor, o valor ocupa o espaço da memória.
+- Quando a variável recebe outro valor, ele elimina o valor anterior para ser substituído pela novo valor (variável simples).
+- Tem como criar uma variável que consiga receber mais de um valor???
+    -> VARIÁVEL SIMPLES X VARIÁVEL COMPOSTA: uma das formas de fazê-lo é utilizando as "TUPLAS", "LISTAS" ou "DICIONÁRIOS" (VARIÁVEIS COMPOSTAS).
+    
+###### VARIÁVEIS COMPOSTAS ######
+### TUPLAS:
+Cada um dos elementos inseridos dentro da variável ocupam um índice para ser acessado.
+
+-> Aqui temos um Tupla cuja variável "lanche" recebe os valores "hamburger", "suco", "pizza"e "pudim" respectivamente.
+-> "hamburger", desta forma, ocupa o índice 0 da tupla.
+
+---> Se inserimos, retornamos o elemento no índice 2 da tupla, ou seja, a "pizza":
+        print(lanche[2])
+
+---> Retorna os elementos do índice 0 ao 1, ou seja, "hamburger" e "seuco" (o 2 não é mostrado)
+        print(lanche[0:2])
+
+---> Retorna os elementos a partir do índice 1:, ou seja, "suco", "pizza" e "pudim".
+        print(lanche[1:])
+    
+---> Retorna o último elemento, ou seja, o pudim:
+        print(lanche[-1])
+
+---> Retorna o penúltimo elemento ("pizza"). O -3 retornaria o "suco" e -4 retornaria o "hamburger", que também pode ser acessado através do índice 0.
+        print(lanche[-2])
+
+---> Podemos utilizar o método "len" para retornar quantos elementos temos dentro da tupla
+     Aqui retorna 4, que é a quantidade de elementos dentro da tupla "lanche":
+     len(lanche)
+
+---> Podemos usar laços de repeticões:
+     O pyhtion cria uma variável simples (aqui o "c") que recebe o elemento 0 no primeiro laço, o elemento 1 no segundo laço, e assim por diante, até o final dos elementos da tupla. Ao final, ele sai do laço.
+        for c in lanche:
+            print(c)
+
+---> AS TUPLAS SÃO IMUTÁVEIS!!! <---
+    Não é possível substituir um dos elementos da tupla durante o funcionamento do programa.
+    A substituição somente é possível manualmente diretamente no código.
+    

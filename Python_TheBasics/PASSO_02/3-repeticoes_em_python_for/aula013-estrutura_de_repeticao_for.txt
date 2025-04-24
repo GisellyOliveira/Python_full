@@ -1,0 +1,72 @@
+# Nessa aula, vamos começar nossos estudos com os laços e vamos fazer primeiro o “for”, que é uma estrutura versátil e simples de entender. 
+# Por exemplo:
+# for c in range(0, 4):
+# print(c)
+# print(‘Acabou’)
+
+# Laços de repetições == Iterações:
+
+# Um laço de repetição gera um loop eterno, portanto definimos um limite ou um evento para definir quando o loop tem início e fim.
+    
+    ### Laço com Variável de Controle: Quando é predefinido quantas vezes o laço executará a mesma ação até sair do laço para executar a próxima ação.
+    # Definimos a letra c para ser a variável de controle (que será nosso contador), mas poderia ser qualquer outro nome:
+    # Essa variável vai definir a quantidade de loops e limites do laço.
+    # Ex1: Consideramos que o personagem de um jogo deve caminhar da casa 1 até a casa 10, onde pegará uma maçã que se encontra neste casa.
+        # Pseudocódigo:
+
+        laço c no intervalo(1,10)
+            passo
+        pega
+
+        # Python (não esquecer os dois pontos :):
+
+        for c in range(1,10):
+            passo
+        pega
+
+    
+    # Ex2: Neste exemplo, o mesmo personagem deve dar um passo e um salto (para superar um obstáculo), três vezes, antes de chegar na penúltima casa, onde precisará avançar uma última casa sem pular e pegar a maçã que ali se encontra:
+
+        # Pseudocódigo:
+
+        laço c no intervalo(0,3)
+            passo
+            pula
+        passo
+        pega
+
+        # Python:
+
+        for c in range(0,3):
+            passo
+            pula
+        passo
+        pega
+    
+    # Ex3: Simulamos uma terceira situação onde esse personagem percorre o mesmo caminho, porém, desta vez, algumas moedas estão presente em alguns trechos e precisam ser pegas:
+    # Nesta lógica, o algorítmo seria: passo - pula - pega (a primeira moeda), passo e pula (não tem nenhuma moeda aqui para pegar), passo - pula - pega (segunda moeda), então passo e pega a maçã.
+    # Neste exemplo, a repetição de dar o passo e pular é modificada quando há a presença da moeda que precisa ser pega. Mas está ação ocorre somente na presença deste particular "evento", a presença da moeda.
+    # Desta forma, usaremos o seguinte modelo de laço de repetição:
+
+    ### ESTRUTURA DE CONTROLE CONDICIONAL: Aninha uma condicional dentro de um laço de repetição.
+    # Essa estrutura de controle condicional é evidenciada utilizando o "se" ou "if", e, neste caso, é determinado pela presença ou não da moeda para poder ser pega.
+    # O bserve a indentação para entender qual ação está dentro da condicional e qual está dentro do laço.
+        # Pseudocódigo:
+
+            laço c no intervalo(0,3)
+                se moeda
+                    pega
+                passo
+                pula
+            passo
+            pega
+
+        # Python:
+
+            for c in range(0,3):
+                if moeda:
+                    pega
+                passo
+                pula
+            passo
+            pega

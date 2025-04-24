@@ -1,0 +1,74 @@
+Crie um código em Python que teste se o site pudim está acessível pelo computador usado.
+pudim.com.br
+
+>>> ESTE FOI O CÓDIGO APRESENTADO NA AULA <<<
+
+import urllib3
+
+try:
+    site = urllib3.request("GET", "https://www.pudim.com.br/")
+except:
+    print('Deu erro')
+else:
+    print('Tudo ok.')
+
+
+--> ESTE CÓDIGO RETORNA "Deu erro".
+>>> VERIFICANDO ERRO <<<
+______________________________________________________________________________________
+import urllib3
+
+try:
+    site = urllib3.request("GET", "https://www.pudim.com.br/")
+except Exception as erro:
+    print(f'Deu erro {erro.__class__}.')
+    print(f'O motivo foi: {erro.__cause__}')
+else:
+    print('Tudo ok.')
+______________________________________________________________________________________
+
+---> O CONSOLE RETORNA:
+Deu erro <class 'urllib3.exceptions.MaxRetryError'>.
+O motivo foi: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)
+
+Analisando o erro e corrigindo o código
+O erro urllib3.exceptions.MaxRetryError com a causa [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate indica que o urllib3 não conseguiu validar o certificado SSL do site "https://www.pudim.com.br/". Isso acontece porque o urllib3, por padrão, verifica a validade do certificado SSL do site, e, nesse caso, o certificado do site "https://www.pudim.com.br/" pode não estar presente na lista de certificados confiáveis do seu sistema.
+Código corrigido:
+______________________________________________________________________________________
+import urllib3
+import ssl
+
+# Desabilitar a verificação de certificados SSL (NÃO RECOMENDADO PARA AMBIENTES DE PRODUÇÃO)
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+http = urllib3.PoolManager(cert_reqs=ssl.CERT_NONE)
+
+try:
+    response = http.request("GET", "https://www.pudim.com.br/")
+    
+    if response.status == 200:
+        print('Tudo ok.')
+        # Aqui você pode fazer o que quiser com a resposta do site
+        # Por exemplo, imprimir o conteúdo da página:
+        # print(response.data.decode('utf-8'))
+    else:
+        print(f'O site retornou o código de erro {response.status}.')
+except Exception as erro:
+    print(f'Deu erro {erro.__class__}.')
+    print(f'O motivo foi: {erro.__cause__}')
+______________________________________________________________________________________
+
+Explicação das mudanças:
+Importar ssl: Importamos o módulo ssl para trabalhar com certificados SSL.
+Desabilitar a verificação de certificados (NÃO RECOMENDADO): O código urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning) desabilita as advertências sobre a verificação de certificados. Essa solução NÃO é recomendada para ambientes de produção, pois pode abrir brechas para ataques de "man-in-the-middle" e outros riscos de segurança. Utilize essa solução apenas para fins de desenvolvimento ou testes.
+Criar um PoolManager com cert_reqs=ssl.CERT_NONE: Criamos um gerenciador de conexões (PoolManager) e definimos cert_reqs=ssl.CERT_NONE para desabilitar a verificação de certificados SSL.
+Verificar o status da resposta: Depois de fazer a requisição, verificamos se o status da resposta é 200, indicando que a requisição foi bem-sucedida.
+Gerenciar erros: O try...except continua capturando erros, e a mensagem de erro é mais informativa, mostrando o tipo de erro e sua causa.
+Soluções recomendadas para produção:
+Atualizar o certificado do seu sistema: Verifique se os certificados SSL do seu sistema estão atualizados. Use o comando update-ca-certificates no Linux ou um gerenciador de certificados no Windows.
+Adicionar o certificado do site à lista de certificados confiáveis: Se o certificado do site "https://www.pudim.com.br/" for confiável, adicione-o à lista de certificados confiáveis do seu sistema.
+Utilizar uma biblioteca que gerencia certificados automaticamente: Existem bibliotecas como requests que gerenciam automaticamente a verificação de certificados SSL e geralmente são mais seguras e fáceis de usar.
+Lembre-se: Desabilitar a verificação de certificados SSL pode ser perigoso e deve ser evitado em ambientes de produção.
+Observação: Para produção, é crucial garantir a segurança da sua aplicação. Portanto, procure soluções para verificar os certificados SSL do site de maneira segura e confiável, em vez de desabilitar a verificação completamente.
+
+
+

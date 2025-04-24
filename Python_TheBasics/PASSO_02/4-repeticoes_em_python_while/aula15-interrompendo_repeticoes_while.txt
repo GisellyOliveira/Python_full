@@ -1,0 +1,42 @@
+Nessa aula, vamos aprender como utilizar a instrução break e os loopings infinitos a favor das nossas estratégias de código. É muito importante saber usar o break no Python, já que em alguns casos precisamos interromper um laço no meio do caminho.
+Além disso, vamos aprender como trabalhar com as novas fstrings do Python.
+
+---> Suponhamos a mesma lógica da aula anterior: um joguinho de vídeo game onde o personagem deve percorrer uma série de casas para encontrar e pegar uma maçã que se encontra no fim do caminho.
+        Durante esta tragetória, o personagem encontra moedas que deve pegar e buracos que deve pular.
+            Agora inserimos uma nova condição: um troféu que aparece numa casa suspensa, e que, quando encontrado e pego, o jogo termina ignorando a missão de pegar a maçã.
+            Neste panorama, precisamos inserir um novo comando dentro do laço onde, quando o personagem chegar na casa anterior a casa suspensa, deve pular para alcançá-la e então pegar o troféu para cessar o jogo.
+            No entanto, o comando de pegar o troféu deve ser inserido fora do laço, senão o personagem continuará percorrendo o laço após encontrar o troféu.
+            Para isso, utilizamos um comando de "stop" após o personagem saltar na casa suspensa e sai do laço.
+            Ai sair do laço, a último comando é pegar (que serviria tbm para a maçã).
+        
+            >>> O BREAK dá o stop e desvia a execução para o lado de fora do laço. <<<
+
+PORTUGOL:
+
+enquanto Verdadeiro
+    se caminho
+        passo
+    se buraco
+        pula
+    se moeda
+        pega 
+    se troféu 
+        pula
+        INTERROMPA  
+    pega
+
+
+PYTHON:
+
+while True:
+    if caminho 
+        passo 
+    if buraco 
+        pula 
+    if moeda 
+        pega
+    if trofeu 
+        pula 
+        break 
+    pega
+

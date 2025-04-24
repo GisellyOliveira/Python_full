@@ -1,0 +1,64 @@
+# Nessa aula, vamos aprender como utilizar estruturas condicionais simples e compostas nos seus programas em Python.
+
+-> Imagine uma estrada que deve levar um carro a um determinado ponto, mas que apresenta uma bifurcação. Isso gerará 2 possíbilidades para se chegar ao mesmo ponto.
+    Cada uma das estradas gerará também um bloco de comandos distintos que conduzirá ao ponto de chegada.
+    Podemos dessa dforma supor cada uma desses caminhos e descrever em pseudoalgorítmo.
+
+    carro.siga()
+    se carro.esquerda()
+        carro.siga()
+        carro.direita()
+        carro.siga()
+        carro.direita()
+        carro.esquerda()
+        carro.siga()
+        carro.direita()
+        carro.siga()
+    senão
+        carro.siga()
+        carro.esquerda()
+        carro.siga()
+        carro.esquerda()
+        carro.siga()
+    carro.pare()
+
+    -> O primeiro bloco de comandos dentro de "se carro.esquerda()" corresponde ao BLOCO VERDADEIRO.
+    -> O bloco de "senão", desta forma, corresponde ao bloco FALSO.
+
+    -> Tendo em vista esses conceitos podemos transformar o pseudocódigo em um código python da seguinte forma:
+
+    # pseudocódigo:
+
+    se carro.esquerda()
+        bloco_V_
+    senão   
+        bloco_F_
+
+    # Python - Condição:
+
+    if carro.esquerda():
+        bloco True
+    else:
+        bloco False
+
+-> Ou o bloco True será executado, ou o False. não serão executados ambos.
+
+# Imagine um programa que solicita que vc digite "Quantos anos tem seu carro?" Caso o carro tenha até 3 anos, ele retorna no console 'carro novo'. Se o carro for mais velho que 3 anos, ele retornará 'carro velho':
+
+tempo = int(input('Quantos anos tem seu carro?'))
+if tempo<=3:
+    print('carro novo')
+else:
+    print('carro velho')
+print('__FIM__')
+
+-> A identação do código é importante.
+    Um código que inicia a linha no início da página vai sempre ser executado.
+    Os blocos ao interno do código podem ou não serem executados.
+
+# CONDIÇÃO SIMPLIFICADA:
+    É possível simplificar no Python todo o bloco de condições do algorítmo anterior da seguinte forma:
+
+    tempo = int(input('Quantos anos tem seu carro?'))
+    print('carro novo' if tempo<=3 else 'carro velho')
+    print('__FIM__')

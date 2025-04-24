@@ -1,0 +1,143 @@
+Nessa aula, vamos ver como o Python permite tratar erros e criar respostas a essas exceções. 
+Aprenda como usar a estrutura try except no Python de uma forma simples.
+
+Erro de sintaxe: quando o programa não reconhece o comando por conta da forma como foi escrita, erroneamente.
+    Ex:
+        primt(x)
+
+
+Erro de semântica: quando o programa não funciona, por um erro na expressão do código como por não recenhecer uma variável, por exemplo.
+    
+    >>> NameError <<<
+    Ex: 
+        _______________________________________________________________________________________________________
+        print(x)
+        _______________________________________________________________________________________________________
+        Neste exemplo de erro semântico, o console retorna a mensagem de "name error",
+        pois não é possível inicializar a variável x pois ela não foi declarada.
+        -> Um erro semântico é um código correto que não foi expresso adequadamente,
+        portanto, este tipo de erro é considerado uma EXCEÇÃO, neste caso, chamado "NameError".
+
+
+    >>> ValueError <<<
+    Ex:
+        _______________________________________________________________________________________________________
+        n = int(input('Digite um número: '))
+        print(n)
+        _______________________________________________________________________________________________________
+        Neste exemplo, o código funciona corretamente, exceto se o número for digitado por extenso, por exemplo.
+        -> Caso fosse digitado um número por extenso, o console retornaria uma exceção chamada "ValueError".
+        Isso porque o programa esperava um número inteiro, e não uma string.
+
+
+    >>> ZeroDivisionError <<<
+    Ex:
+        _______________________________________________________________________________________________________
+        a = int(input('Numerador: '))
+        b = int(input('Denominador: '))
+        r = a / b
+        print(f'O resultado é {r}')
+        _______________________________________________________________________________________________________
+        Neste exemplo, podemos citar um novo erro caso o denominador seja 0.
+        Isto ocorre por um problema na matemática, onde a divisão por 0 não existe no campo nos números inteiros e reais.
+        -> Caso o denominador da operacão seja 0, o console retorna uma exceção do tipo "ZeroDivisionError".
+
+
+    >>> TypeError <<<
+    Ex:
+        _______________________________________________________________________________________________________
+        r = 2 / '2'
+        _______________________________________________________________________________________________________
+        Neste exemplo, o denominador foi atribuído entre aspas, o que faz com que o Python o reconheça como uma valor do tipo string.
+        Desta forma, a divisão fica impossibilitada pois, um dos valores não é reconhecido como do tipo number.
+        -> O console retornará uma exceção do tipo "TypeError"
+
+    
+    >>> IndexError <<<
+    Ex:
+        _______________________________________________________________________________________________________
+        lst = [3, 6, 4]
+        print(lst[3])
+        _______________________________________________________________________________________________________
+        Neste exemplo, uma lista foi declarada com 3 valores, correspondentes ao índice 0, 1 e 2.
+        -> Pedir um índex que não existe numa lista gera uma exceção do tipo "IndexError".
+        _______________________________________________________________________________________________________
+    
+
+    >>> KeyError <<<
+        _______________________________________________________________________________________________________
+        meu_dicionario = {"nome": "João", "idade": 30}
+        print(meu_dicionario["profissão"])
+        _______________________________________________________________________________________________________
+        Neste exemplo, foi solicitado uma chave "profissão" que não existe no dicionário.
+        -> No caso de dicionários, Esse tipo de exceção é denominado "KeyError".
+
+
+    >>> ModuleNotFoundError <<<
+        _______________________________________________________________________________________________________
+        import uteis
+        _______________________________________________________________________________________________________
+        Neste exemplo, foi solicitado um módulo que não existe.
+        -> Esse tipo de exceção é denominado "ModuleNotFoundError".
+
+
+    Existem muitos outros tupos de exceções no Python, como por exemplo:
+    >>> EOFError <<<
+    >>> KeyboardInterrupt <<<
+    >>> OSError <<<
+    >>> MemoryError <<<
+    >>> ConnectionError <<<
+    >>> RuntimeError <<<
+    etc etc etc...
+
+    Toda exceção do Python é filho de uma exceção maior, denominada >>> Exception <<<
+
+
+    Para tratar exceções no Python, utilizamos o comando:
+
+    try:
+        OPERAÇÃO -> Indica a operação
+    except:
+        FALHOU -> Indica o comportamento se der problema
+    else:
+        DEU CERTO -> Indica o comportamento se a operação do try deu certo
+    finally:
+        CERTO/FALHA -> O finally ocorre independentemente de ter dado certo ou errado a operação.
+
+    --->>> As cláusulas "else" e "finally" são OPCIONAIS.
+
+
+--->>> Podemos, inclusive, retornar a classe do erro utilizando no except a palavra Exception:
+_______________________________________________________________________________________________________
+try:
+    a = int(input('Numerador: '))
+    b = int(input('Denominador: '))
+    r = a / b
+except Exception as erro:
+    print(f'O problema encontrado foi {erro.__class__}...')
+else:
+    print(f'O resultado é {r:.1f}')
+finally:
+    print('Volte sempre! Muito Obrigada!')
+_______________________________________________________________________________________________________
+
+    --->>> É possível utilizar vários "except" dentro da estrutura de tratamento de erros,
+    podendo, inclusive, utilizar cada exception para um determinado tipo de erro:
+    
+    try:
+        OPERAÇÃO -> Indica a operação
+    except TypeError:
+        FALHOU -> Indica o comportamento se der problema de TypeError
+    except ValueError:
+        FALHOU -> Indica o comportamento se der problema de ValueError
+    except OSError:
+        FALHOU -> Indica o comportamento se der problema de OSError
+    else:
+        DEU CERTO -> Indica o comportamento se a operação do try deu certo
+    finally:
+        CERTO/FALHA -> O finally ocorre independentemente de ter dado certo ou errado a operação.
+    
+
+
+
+

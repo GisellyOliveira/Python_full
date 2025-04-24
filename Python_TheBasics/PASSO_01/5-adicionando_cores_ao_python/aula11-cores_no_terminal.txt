@@ -1,0 +1,20 @@
+Nessa aula, vamos aprender como utilizar os códigos de escape sequence ANSI para configurar cores para os seus programas em Python. 
+
+Veja como utilizar o código \033[m com todas as suas principais possibilidades.
+
+Padrão ANSI é um padrão internacional de escape sequence, que começa com a \ e o código.
+
+Veremos como funciona o código para cores:
+
+Sempre que quisermos iniciar uma cor em python com o código ANSI, iniciamos com "\033[" + "style" + "back" + "m" 
+
+exemplo:
+
+\033[0;33;44m
+\033[m   ---> Estilo padrão do terminal com letra cinza e fundo preto. Reseta todas as outras alterações.
+
+Para estilo, temos geralmente: 0 (none - opcional), 1 (bold), 4(underline), 7 (negative)
+Para text, temos de 30 a 37, sendo: 30 (branco), 31 (vermelho), 32 (verde), 33 (amarelo), 34 (azul), 35 (lilás), 36 (azul claro), 37 (cinza)
+Para back, temos de 40 a 47, sendo: 40 (branco), 41 (vermelho), 42 (verde), 43 (amarelo), 44 (azul), 45 (lilás), 46 (azul claro), 47 (cinza)
+
+É também possivel utilizar um módulo chamado "colorize()" para utilizar, inclusive, valores hexadecimais.

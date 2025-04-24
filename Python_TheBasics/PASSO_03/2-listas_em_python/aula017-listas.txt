@@ -1,0 +1,100 @@
+Nessa aula, vamos aprender o que são LISTAS e como utilizar listas em Python. 
+As listas são variáveis compostas que permitem armazenar vários valores em uma mesma estrutura, acessíveis por chaves individuais.
+
+LISTAS => VARIÁVEIS COMPOSTAS
+    As listas, assim como as tuplas, são variáveis compostas.
+    Enquanto as tupla são imutáveis, os itens da lista podem ser modificados!!!
+
+Assim como as tuplas, cada um dos elementos da lista recebem uma "key"/"chave"correspondente ao índice que ocupam.
+Enquanto na tuplas os valores são passados dentro de parênteses (opicional), na lista precisamos utilizar [].
+
+*** SUBSTITUINDO ELEMENTOS:
+Ex:
+    lanche = ['hamburguer', 'suco', 'pizza', 'pudim']
+
+Se tentarmos substituir o elemento no índice 3('pudim'):
+    lanche[3] = 'picolé'
+
+A lista é modificada:
+    lanche = ['hamburguer', 'suco', 'pizza', 'picolé']
+
+
+*** ADICIONANDO NOVOS ELEMENTOS: APPEND()
+Para adicionarmos novos elementos, criando novos índices dentro dos já existentes dentro da lista, precisamos utilizar o método append():
+O append() cria um novo elemento no final da lista, acrescentando um novo índice.
+Ex:
+    lanche.append('cookies')
+    lanche = ['hamburguer', 'suco', 'pizza', 'picolé', 'cookies']
+-> O elemento 'cookies' foi adicionado no final da lista, ocupando o índice 4.
+
+*** ADICIONANDO ELEMENTOS EM QUALQUER ÍNDICE: INSERT()
+Para adicionarmos um elementos em um índice específico, utilizamos o método insert().
+Ex:
+    lanche.insert(0, 'hot dog')
+    lanche = ['hot dog', 'hamburger', 'suco', 'pizza', 'picolé', 'cookies']
+-> O elemento 'hot dog'entrou no índice 0, deslocando o índice dos demais elementos.
+
+
+*** PAGAR ELEMENTOS:
+    ** COMANDO DEL:
+    O comando del não é um método, mas sim um comando para deletar elementos da lista.
+    Ex:
+        del lanche[3]
+        lanche = ['hot dog', 'hamburguer', 'suco', 'picolé', 'cookies']
+    -> Deleta o elementos 'pizza' que estava no índice 3. Os outros índices são reposicionados.
+
+    ** MÉTODO POP():
+    O método pop() é geralmente utilizado para apagar o último elemento.
+     Ex:
+        lanche.pop()
+        lanche = ['hot dog', 'hamburguer', 'suco', 'picolé']
+    -> Elimina o último elemento 'cookies'.
+
+    É também possível passar um índice como parâmetro para del eliminado.
+    Ex:
+        lanche.pop(3)
+        lanche = ['hot dog', 'hamburguer', 'suco', 'picolé', 'cookies']
+    -> Elimina o elementos 'pizza' que estava no índice 3. Os outros índices são reposicionados.
+
+    ** MÉTODO REMOVE():
+    O método remove() serve para revomer itens da lista.
+    Ex:
+        lanche.remove('pizza')
+        lanche = ['hot dog', 'hamburguer', 'suco', 'picolé', 'cookies']
+    -> Remove o elementos 'pizza' que foi passado como parâmetro. O remove recebe como parâmetro o próprio elemento que deseja ser removido, e não o seu índice.
+       Os outros índices são reposicionados.
+
+    Se tentarmos remover um ítem que já foi removido, será retornado um erro.
+    Portanto, podemos utilizar uma estrutura condicional para verificar a presença do item antes de utilizar o método remove()
+    Ex:
+        if 'pizza' in lanche:
+            lanche.remove('pizza')
+
+    -> O OPERADOR in É EXTREMAMENTE IMPORTANTE PARA AS ESTRUTURAS COMPOSTAS EM PYTHON.
+
+
+*** CRIAR LISTAS ATRAVÉS DE RANGE:
+valores = list(range(4,11))
+print(valores) # [4, 5, 6, 7, 8, 9, 10]
+
+
+*** ORGANIZAR LISTA COM O MÉTODO sort():
+    O método sort() organiza uma lista contendo números de forma crescente.
+    Ex:
+        valores = [8, 2, 5, 4, 9, 3, 0]
+        valores.sort()
+        valores = [0, 2, 3, 4, 5, 8, 9]
+    -> O resultado final reposiciona os elementos e altera os seus respectivos índices.
+
+    É também possível organizar os números em forma decrescente utilizando o parâmetro reverse=True
+        valores = [8, 2, 5, 4, 9, 3, 0]
+        valores.sort(reverse=True)
+        valores = [9, 8, 5, 4, 3, 2, 0]
+
+
+*** CONTAR ELEMENTOS COM A FUNÇÃO INTERNA len():
+    Retorna a quantidade de elementos contidos dentro da lista:
+    valores = [8, 2, 5, 4, 9, 3, 0]
+    len(valores) # Retorna 7
+
+

@@ -1,0 +1,161 @@
+Nessa aula, vamos continuar nossos estudos de funções em Python, 
+aprendendo mais sobre Interactive Help em Python, 
+o uso de docstrings para documentar nossas funções, 
+argumentos opcionais para dar mais dinamismo em funções Python, 
+escopo de variáveis e retorno de resultados.
+
+>>> INTERACTIVE HELP ou AJUDA INTERATIVA <<<
+    É uma função interna do python para obter ajuda. 
+    Pode ser acessa da seguinte forma:  
+            help(parâmetro)
+------------------------------------------------------------------------------
+Ex: 
+help(input)
+Retorna:
+Read a string from standard input.  The trailing newline is stripped.
+
+The prompt string, if given, is printed to standard output without a
+trailing newline before reading input.
+
+If the user hits EOF (*nix: Ctrl-D, Windows: Ctrl-Z+Return), raise EOFError.
+On *nix systems, readline is used if available.
+------------------------------------------------------------------------------
+
+    Também pode ser acessada com o comando:
+        print(parâmetro.__doc__)
+------------------------------------------------------------------------------
+Ex: 
+print(input.__doc__)
+Retorna:
+Read a string from standard input.  The trailing newline is stripped.
+
+The prompt string, if given, is printed to standard output without a
+trailing newline before reading input.
+
+If the user hits EOF (*nix: Ctrl-D, Windows: Ctrl-Z+Return), raise EOFError.
+On *nix systems, readline is used if available.
+------------------------------------------------------------------------------
+
+
+>>> DOCSTRINGS <<<
+UMA DOCSTRING E UMA STRING DE DOCUMENTAÇÃO
+O retorno da ajuda interativa são docstrings.
+
+Vejamos como exemplo uma função pchamada contador para contar números em base a um parâmetro de início, um de fim e um terceiro para o passo da contagem.
+Quando passamos os parâmetros reais na chamada da função, esses parâmetros serão copiados, substituindo os parâmetros formais da função.
+------------------------------------------------------------------------------
+def contador(i,f,p): # -> Parâmetros formais
+    c = i
+    while c <= f:
+        print(f'{c}', end='')
+        c += p
+    print('FIM!')
+
+
+contador(2,10,2) # -> Parâmetros reais
+------------------------------------------------------------------------------
+Caso alguém esteja usando essa função, ela precisa saber como passar os parâmetros e utilizar a função.
+Esse tipo de documentação é feita em docstrings.
+As docstrings começam na linha abaixo do comando def. 
+Para inserí-las, basta comentá-las com 3 aspas duplas no trecho abaixo da primeira linha da função:
+------------------------------------------------------------------------------
+def contador(i,f,p): 
+""""
+DOCSTRINGS
+"""
+    c = i
+    while c <= f:
+        print(f'{c}', end='')
+        c += p
+    print('FIM!')
+------------------------------------------------------------------------------
+Exemplo de docstring para a documentação da função que conta passo:
+def contador(i,f,p): 
+""""
+    -> Faz uma contagem e mostra na tela.
+    :parametro i: início da contagem
+    :parametro f: fim da contagem
+    :parametro p: passo da contagem
+    :return: sem retorno
+"""
+------------------------------------------------------------------------------
+
+
+>>> PARÂMETROS OPCIONAIS <<<
+Quando definimos uma função, a chamada da função deve conter o mesmo número de parâmetros definido previamente.
+Caso um dos parâmetros não seja passado, a chamada vai dar um retorno de erro.
+Para isso, utilizamos os parâmetros opcionais, que nada mais são que valores iniciais aos parâmetros da função.
+Caso somente um ou nenhum dos parâmetros seja passado, a função utiliza os valores dos parâmetros opcionais:
+------------------------------------------------------------------------------
+Exemplo:
+
+def somar(a=0, b=0, c=0):
+    s = a + b + c
+    primeira(f'A soma vale {s}')
+
+
+somar(3,2,5) # -> Parâmetro a recebe valor 3, parâmetro b recebe 2 e parâmetro c recebe 5
+somar(8,4) # -> Parâmetro a recebe valor 8, parâmetro b recebe 4 e parâmetro c mantem valor 0
+somar() # -> Todos os parâmetros utilizarão o valor 0 especificado nos parâmetros opcionais na função.
+------------------------------------------------------------------------------
+
+
+>>> ESCOPO DE VARIÁVEIS <<<
+    Ou escopo de declaração. O escopo é o local onde a variável vai ou não ocupar.
+    Quando a variável é declarada dentro do programa, o seu valor tem escopo global, pois será recebido em todo o escopo do programa.
+    Quando uma variável é declarada dentro de uma função, ela recebe valor local, pois seu valor somente pode ser manipulado dentro do escopo da função.
+    Se uma variável recebe um valor como escopo global, porém lhe é atriuído um novo valor dentro da função,
+    o novo valor recebido será de escopo local, sendo válido somente dentro da função.
+    -> VER aula021c-funcoes_parte2.py
+
+    --->>> No Python, é possível, porém, alterar propositalmente o valor da variável de escopo global dentro de uma função, fazendo com que a mesma receba o valor atribuído dentro da função como valor global.
+           Ex:
+            -> Se declararmos uma varável global a com valor 5 e alterarmos o valor dela dentro da função:
+------------------------------------------------------------------------------
+                        def teste(b):
+                        a = 8
+                    
+
+                    a = 5
+                    teste(a)
+------------------------------------------------------------------------------
+            -> O valor 5 é o valor real da variável a e tem valor real.
+            -> A função recebe o valor durante a chamada que tem valor formal dentro da função.
+            -> A atribuição do valor 8 para a ocorre somente dentro do escopo da função.
+            --->>> PORÉM:
+------------------------------------------------------------------------------
+                        def teste(b):
+                        a = 8
+                        global a
+
+
+                    a = 5
+                    teste(a)
+------------------------------------------------------------------------------
+            -> Ao adicionar >>> global a <<<, estamos determinando que o valor formal passe a ser o valor global da variável, alterando o seu valor também fora do escopo da função.
+
+
+>>> ESCOPO DE CHAMADA DE BIBLIOTECA OU CHAMADA DE FUNCÃO: <<<
+        Há também o escopo da chamada da biblioteca, pois a importanção de bibliotecas podem ter diferentes escopos dentro do código.
+        A importação da biblioteca pode ser global ou local.
+------------------------------------------------------------------------------
+
+
+>>> RETORNANDO VALORES <<<
+        return
+    As funções em Python podem ou não retornar um valor. Para retorná-las, usamos o "return":
+    O "return" é muito útil para personalizar a resposta.
+    Ex: 
+------------------------------------------------------------------------------
+            def soma(a=0, b=0, c=0):
+                s = a + b + chamada
+                return s #---> Quando utilizamos o return, ele retornará um valor que precisará ser guardada dentro de alguma variável que tenha sido declarada fora da função.
+
+
+            resultado1 = somar(3, 2, 5)
+            resultado2 = somar(1, 7)
+            resultado3 = somar(4)
+            print(f'Meus cálculos deram {resultado1}, {resultado2} e {resultado3}.')
+
+               
+               

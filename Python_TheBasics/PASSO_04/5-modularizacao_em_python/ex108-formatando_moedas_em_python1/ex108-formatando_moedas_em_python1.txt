@@ -1,0 +1,10 @@
+Adapte o código do desafio #107, criando uma função adicional chamada moeda() 
+que consiga mostrar os números como um valor monetário formatado.
+
+Na resolução dos exercícios, o módulo se chama moeda, a função se chama moeda, e o parâmetro da função também foi passada com o mesmo nome.
+Para fins didáticos, o exercício já foi solucionado apresentando nomes diferentes.
+moedav2 é o nome do módulo.
+moeda é o nome da função.
+ciframoeda é o nome do parâmetro que recebe o símbolo da moeda que precisamos, tendo como parâmetro opcional o R$.
+
+No próximo exercício, isso deve repetir-se, mas utilizaremos os nomes atribuídos pelo Guanabara, sempre que isso não causar algum conflito didático.
